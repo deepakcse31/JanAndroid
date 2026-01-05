@@ -9,7 +9,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 //Main Screen Of Android Application
 public class MainActivity extends AppCompatActivity {
-
+//Added one Feature
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
