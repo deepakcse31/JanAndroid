@@ -12,7 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JanAndroid">
         <activity
+            android:name=".ConstrainActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ComponentActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
