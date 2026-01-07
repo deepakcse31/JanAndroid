@@ -1,6 +1,7 @@
 package com.example.janandroid;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,10 +16,41 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+        Log.e("OnCreate","OnCreate"+"OnCreate");
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.e("OnStart","OnStart"+"OnStart");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.e("OnResume","OnResume"+"OnResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.e("OnPause","OnPause"+"OnPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.e("OnStop","OnStop"+"OnStop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.e("OnDestroy","OnDestroy"+"OnDestroy");
     }
 }
