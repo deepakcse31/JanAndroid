@@ -14,7 +14,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/edphon"
+        app:layout_constraintBottom_toTopOf="@+id/edphone"
         />
 
     <EditText
@@ -27,12 +27,12 @@
         android:inputType="phone"
         android:layout_marginHorizontal="20dp"
         android:hint="Enter Phone No"
-        android:id="@+id/edphon"
+        android:id="@+id/edphone"
         />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/edphon"
+        app:layout_constraintTop_toBottomOf="@+id/edphone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginHorizontal="20dp"
@@ -50,5 +50,6 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginBottom="20dp"
         android:text="Login"
+        android:id="@+id/btnlogin"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>
