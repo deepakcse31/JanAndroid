@@ -1,6 +1,7 @@
 package com.example.janandroid;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -22,8 +23,16 @@ public class SplashActivity extends AppCompatActivity {
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent=new Intent(getApplicationContext(),LoginActivity.class);
-                startActivity(intent);
+                SharedPreferences sharedPreferences=getSharedPreferences("my_pref",MODE_PRIVATE);
+                String isLogin=sharedPreferences.getString("islogin","false");
+                if (isLogin.equals("true")){
+                    Intent intent=new Intent(getApplicationContext(),PopUpActivity.class);
+                    startActivity(intent);
+                }else {
+                    Intent intent=new Intent(getApplicationContext(),LoginActivity.class);
+                    startActivity(intent);
+                }
+
             }
         },2000);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
