@@ -14,6 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JanAndroid">
         <activity
+            android:name=".PhoneActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VisiblityActivity"
+            android:exported="false" />
+        <activity
             android:name=".PaymentDetailsActivity"
             android:exported="false" />
         <activity

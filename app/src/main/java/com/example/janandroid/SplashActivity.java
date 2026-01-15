@@ -26,7 +26,7 @@ public class SplashActivity extends AppCompatActivity {
                 SharedPreferences sharedPreferences=getSharedPreferences("my_pref",MODE_PRIVATE);
                 String isLogin=sharedPreferences.getString("islogin","false");
                 if (isLogin.equals("true")){
-                    Intent intent=new Intent(getApplicationContext(),PaymentActivity.class);
+                    Intent intent=new Intent(getApplicationContext(),PhoneActivity.class);
                     startActivity(intent);
                 }else {
                     Intent intent=new Intent(getApplicationContext(),LoginActivity.class);
