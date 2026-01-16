@@ -1,22 +1,24 @@
 package com.example.janandroid;
 
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-//Main Screen Of Android Application
-public class MainActivity extends AppCompatActivity {
-//Added one Feature
+
+public class BroadCastScreen extends AppCompatActivity {
+    AirplaneModeChangeReceiver airplaneModeChangeReceiver;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
-        Log.e("OnCreate","OnCreate"+"OnCreate");
+        setContentView(R.layout.activity_broad_cast_screen);
+        airplaneModeChangeReceiver=new AirplaneModeChangeReceiver();
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -27,30 +29,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Log.e("OnStart","OnStart"+"OnStart");
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.e("OnResume","OnResume"+"OnResume");
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.e("OnPause","OnPause"+"OnPause");
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.e("OnStop","OnStop"+"OnStop");
+        IntentFilter intentFilter=new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+        registerReceiver(airplaneModeChangeReceiver,intentFilter);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.e("OnDestroy","OnDestroy"+"OnDestroy");
+        unregisterReceiver(airplaneModeChangeReceiver);
     }
 }
